@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+.overlay{ position: absolute; width: 100%; height: 100%; top: 0;
+    left: 0; background-color: rgba(0, 0, 0, 0.712);
+    display: flex; justify-content: flex-start; align-items: center;
+    flex-direction: column; color: #fff;}
+h2{height: 80px;}
+.title{ font-size: 5rem; margin-top: 5rem;margin-right: 55px; } 
+table{
+	font-size: 25px;	
+}
+
+input{
+    margin-bottom:15px;
+    padding: 6.5px;
+    padding-left: 7px;
+    align-content: center;;
+}
+.boton1,.boton2,.boton3,.boton4 {
+	margin-left: .5px;
+	margin-top: 12px;
+	border-radius: 5px;
+	font-size: 19px;
+	font-family: "VT323";
+	
+}
+
+	
+	
