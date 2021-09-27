@@ -20,6 +20,12 @@ public class Productos_DTO {
 		Iva_compra = iva_compra;
 		Precio_venta = precio_venta;
 	}
+	
+	public Productos_DTO(int codigo) {
+		Codigo = codigo;
+	}
+
+
 
 
 	public int getCodigo() {

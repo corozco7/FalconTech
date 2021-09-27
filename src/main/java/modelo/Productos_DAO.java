@@ -27,8 +27,8 @@ public class Productos_DAO {
 			if(pro==null) {
 				ps = cnn.prepareStatement("SELECT NIT FROM proveedores WHERE NIT=?");
 				ps.setInt(1, produc.getNIT_proveedor());
-				x = ps.executeUpdate();
-				if (x == 0) {
+				rs = ps.executeQuery();
+				if (!rs.next()) {
 					JOptionPane.showMessageDialog(null, "El proveedor no existe");
 					return dat;
 				}
@@ -95,8 +95,8 @@ return pro;
 		    ps.setString(2, produc.getNombre_producto());
 		    ps.setDouble(3, produc.getPrecio_compra()); 
 		    ps.setDouble(4, produc.getIva_compra());
-		    ps.setDouble(4, produc.getPrecio_venta());
-		    ps.setInt(5, produc.getCodigo());
+		    ps.setDouble(5, produc.getPrecio_venta());
+		    ps.setInt(6, produc.getCodigo());
 		   x= ps.executeUpdate();
 		   if(x>0) {
 			   dat= true;

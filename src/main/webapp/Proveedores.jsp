@@ -94,7 +94,9 @@ ciu=request.getParameter("c");
 			<li class="active">
 				<a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img src="img/proveedor.png"></a>
 			</li>
-			
+			<li>
+				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/proveedor.png"></a>
+			</li>
 		</ul>
 	</div>
 	<script type="text/javascript" src="js/menujs.js"></script>
