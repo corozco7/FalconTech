@@ -25,14 +25,21 @@ public class Productos_DAO {
 		try {
 			pro=consultarproducto(produc);
 			if(pro==null) {
-			ps=cnn.prepareStatement("INSERT INTO productos VALUES(?,?,?,?,?,?)");
-		    ps.setInt(1, produc.getCodigo());
-		    ps.setInt(2, produc.getNIT_proveedor());
-		    ps.setString(3, produc.getNombre_producto());
-		    ps.setDouble(4, produc.getPrecio_compra());
-		    ps.setDouble(5, produc.getIva_compra());
-		    ps.setDouble(6, produc.getPrecio_venta());
-		    x= ps.executeUpdate();
+				ps = cnn.prepareStatement("SELECT NIT FROM proveedores WHERE NIT=?");
+				ps.setInt(1, produc.getNIT_proveedor());
+				x = ps.executeUpdate();
+				if (x == 0) {
+					JOptionPane.showMessageDialog(null, "El proveedor no existe");
+					return dat;
+				}
+				ps=cnn.prepareStatement("INSERT INTO productos VALUES(?,?,?,?,?,?)");
+				ps.setInt(1, produc.getCodigo());
+				ps.setInt(2, produc.getNIT_proveedor());
+				ps.setString(3, produc.getNombre_producto());
+				ps.setDouble(4, produc.getPrecio_compra());
+				ps.setDouble(5, produc.getIva_compra());
+				ps.setDouble(6, produc.getPrecio_venta());
+				x = ps.executeUpdate();
 		if(x>0) {
 			dat=true;
 			
