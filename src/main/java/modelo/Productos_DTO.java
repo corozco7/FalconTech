@@ -80,9 +80,4 @@ public class Productos_DTO {
 	public void setPrecio_venta(double precio_venta) {
 		Precio_venta = precio_venta;
 	}
-	
-	
-	
-	
-
 }
