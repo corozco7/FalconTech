@@ -6,7 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+
+import com.mysql.cj.Session;
+
+import modelo.Usuario_DAO;
+import modelo.Usuario_DTO;
 
 /**
  * Servlet implementation class ControladorLogin
@@ -35,17 +41,20 @@ public class ControladorLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession sesion=request.getSession();
 		String us, ps;
+		Usuario_DAO log= new Usuario_DAO();
 		if(request.getParameter("btnLogin") != null) {
-			us = request.getParameter("usuario");
-			ps = request.getParameter("pass");
-			
-			if(us.equals("admininicial") && ps.equals("admin123456")) {
-				JOptionPane.showMessageDialog(null, "Datos correctos");
-				response.sendRedirect("menu.jsp");
-			} else {
-				JOptionPane.showMessageDialog(null, "Datos incorrectos");
+			us=request.getParameter("usuario");
+			ps=request.getParameter("pass");
+			Usuario_DTO val= log.validacionLogin(us, ps);
+			if(val != null) {
+				sesion.setAttribute("usuario", val);
+				
+				request.getRequestDispatcher("menu.jsp").forward(request, response);
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "Los datos son incorrectos");
 				response.sendRedirect("index.jsp");
 			}
 		}

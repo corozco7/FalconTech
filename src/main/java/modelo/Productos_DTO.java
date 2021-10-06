@@ -3,24 +3,28 @@ package modelo;
 public class Productos_DTO {
 	
 	private int Codigo;
-	private int NIT_proveedor;
 	private String Nombre_producto;
+	private int NIT_proveedor;
 	private double Precio_compra;
 	private double Iva_compra;
 	private double Precio_venta;
 	
 	
-	public Productos_DTO(int codigo, int nIT_proveedor, String nombre_producto, double precio_compra, double iva_compra,
+	
+	
+	public Productos_DTO(int codigo, String nombre_producto, int nIT_proveedor, double precio_compra, double iva_compra,
 			double precio_venta) {
-		
+		super();
 		Codigo = codigo;
-		NIT_proveedor = nIT_proveedor;
 		Nombre_producto = nombre_producto;
+		NIT_proveedor = nIT_proveedor;
 		Precio_compra = precio_compra;
 		Iva_compra = iva_compra;
 		Precio_venta = precio_venta;
 	}
-	
+
+
+
 	public Productos_DTO(int codigo) {
 		Codigo = codigo;
 	}

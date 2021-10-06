@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/menu.css" >
-<link rel="stylesheet" type="text/css" href="css/style.css" >
+
 <link rel="shortcut icon" href="img/icons8-halcón-26.png">
 <meta charset="UTF-8">
 <title>Producto</title>
@@ -14,8 +14,8 @@
 String cod="",nit="",nom="",prec="",iva="";
 if(request.getParameter("c")!=null){
 cod=request.getParameter("c");
-nit=request.getParameter("n");
 nom=request.getParameter("no");
+nit=request.getParameter("n");
 prec=request.getParameter("p");
 iva=request.getParameter("i");
 }%>
@@ -26,7 +26,14 @@ iva=request.getParameter("i");
 		<div class="menu">
 			<h3 class="logo">Falcon<span>Tech</span> 	</h3>
 				
-		
+		<div id="menuu">
+		<ul>
+			<li><a href="menu.jsp">Home</a></li>
+			<li><a href="Nosotros.jsp">Nosotros</a></li>
+			<li><a href="#">Servicios</a></li>
+			<li class="item-r"><a href="#">Contacto</a></li>
+		</ul>
+	</div>
 			<div class="hamburger-menu">
 				<div class="bar"></div>
 			</div>
@@ -41,40 +48,16 @@ iva=request.getParameter("i");
 					<h2 class="title">Productos</h2>
 					<p class="description"> 
 					</p>
-				<form action="Servlet_Productos" method="post">
+				 	
+	     <form action="Servlet_CSV" method="post" enctype="multipart/form-data">
+   		<input type="text" name="nomarc" placeholder="Nombre archivo">
+   		<input type="file" name="archivo" value="" >
+		<input type="submit" name="cargar" value="Add Archivo">
+		 </form>
 	  
-	  
-	  <table>
-               <tr>
-                 <td>Codigo</td>
-                 <th><input type="text" placeholder="Codigo Producto" name="codigo"  Value="<%=cod%>" /></th>
-              </tr>
-              <tr>
-                 <td>NIT Proveedor </td>
-                 <th><input type="text" placeholder="NIT Proveedor" name="NIT" Value="<%=nit%>" /></th>
-               </tr>  
-                 <tr>
-                 <td>Nombre producto</td>
-	            <th><input type="text" placeholder="Nombre" name="nombre" Value="<%=nom%>" /></th>
-	             </tr>
-	             <tr>
-	             <td>Precio de compra</td>
-	            <th><input type="text" placeholder="Precio compra" name="preciocompra" Value="<%=prec%>" /></th>
-	             </tr>
-	             <tr>
-	             <tr>
-                 <td>IVA</td>
-                 <th><input type="text" placeholder="IVA" name="iva" Value="<%=iva%>" /></th>
-                 </tr>
-                  <tr>
-	              </table>
-	              
-	              <input class="boton1" type="submit" value="Insertar" name="btninsertar">
-	             <input class="boton2" type="submit" value="Consultar" name="btnconsultar">
-	             <input class="boton3" type="submit" value="Actualizar" name="btnactualizar">
-	             <input class="boton4" type="submit" value="Eliminar" name="btneliminar">
-	     
-	  </form>	
+				
+				
+	 
 				</div>
 			</header>
 		</div>
@@ -95,9 +78,16 @@ iva=request.getParameter("i");
 				<a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img src="img/proveedor.png"></a>
 			</li>
 			<li class="active">
-				<a href="Productos.jsp" style="--i: 0.2s">Producto<img src="img/proveedor.png"></a>
+				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
 			</li>
+		 <li >
+				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
+			</li>
+		
+		
 		</ul>
+		
+		
 	</div>
 	<script type="text/javascript" src="js/menujs.js"></script>
 </div>

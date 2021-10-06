@@ -1,4 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 
 *{ padding:0; margin: 0px; box-sizing: border-box; }
 
@@ -14,7 +17,7 @@ body{ font-family:"VT323";font-size:30px; overflow: hidden; }
 
 .menu{ max-width: 72rem; width: 100%; height: 100%; margin: 0 auto;
     padding: 0 2rem; display: flex; justify-content: space-between;
-    align-items: center; color: #fff;
+    align-items: center; background-color: #000; color: white ;
 }
 
 .logo{
@@ -120,6 +123,7 @@ ul li.active a{ color: #e20f2f; }
 }
 
 .links a:hover{ color: #e20f2f; }
+.links a:active{ color: #ffffff;}
 
 .container.active .links a{ 
     animation: appear 0.5s forwards ease var(--i);
@@ -190,4 +194,94 @@ ul li.active a{ color: #e20f2f; }
 .container.active .main:hover{
     transform: perspective(1300px) rotateY(20deg) translateY(10px) 
                 translateZ(340px) scale(0.5);
+}
+
+.social-bar{
+	padding-bottom:50px;
+	position: fixed;
+	right:0%;
+	top:35%;
+	font-size:1.5rem;
+	display:flex;
+	flex-direction: column;
+	align-items: fix-end;
+	z-index: 100;
+}
+
+.icon{
+	color: white;
+	text-decoration: none;
+	padding: .7rem;
+	display: flex;
+	transition: all .5s;
+	
+}
+.icon-facebook{
+	background: #2E406E;
+	border-radius:1rem 0 0 0;
+}
+
+.icon-twitter{
+background: white;
+}
+
+.icon-youtobe{
+	background: #E83028;
+}
+
+.icon-instagram{
+	background: white;
+}
+.icon:first-child {
+	border-radius:1rem 0 0 0;	
+}
+
+.icon:last-child {
+	border-radius: 0 0 0 1rem;
+	
+}
+.title{
+  size: 100px;
+}
+.pie{
+	font-size: 20px;
+	margin-top: 1148px;
+	padding-right: 150px;
+}
+.description{
+	font-family: Share Tech Mono;
+}
+#menuu{
+			background-color: #000;
+           font-family: Share Tech Mono;
+           font-size: 25px;
+		}
+
+		#menuu ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#menuu ul li{
+			display: inline-block;
+		}
+
+		#menuu ul li a{
+			color: white;
+			display: block;
+			padding: 20px 20px;
+			text-decoration: none;
+		}
+
+		#menuu ul li a:hover{
+			background-color: #45243D;
+		}
+
+		.item-r{
+			float: right;
+		}
+		
+.tech{
+	color:red;
 }

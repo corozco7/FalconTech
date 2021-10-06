@@ -34,8 +34,8 @@ public class Productos_DAO {
 				}
 				ps=cnn.prepareStatement("INSERT INTO productos VALUES(?,?,?,?,?,?)");
 				ps.setInt(1, produc.getCodigo());
-				ps.setInt(2, produc.getNIT_proveedor());
-				ps.setString(3, produc.getNombre_producto());
+				ps.setString(2, produc.getNombre_producto());
+				ps.setInt(3, produc.getNIT_proveedor());
 				ps.setDouble(4, produc.getPrecio_compra());
 				ps.setDouble(5, produc.getIva_compra());
 				ps.setDouble(6, produc.getPrecio_venta());
@@ -64,7 +64,7 @@ public class Productos_DAO {
 		    rs=ps.executeQuery();
 		    //.next me permite ver si por lo menos hay un resgistro
 		    if(rs.next()) {
-		     pro= new Productos_DTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
+		     pro= new Productos_DTO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
 		    }
 		
 		} catch (SQLException e) {
@@ -90,9 +90,10 @@ return pro;
 		boolean dat=false;
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE productos SET NIT_proveedor=?, nombre_producto=?, precio_compra=?, iva_compra=?, precio_venta=? WHERE Codigo=?");
-		    ps.setInt(1, produc.getNIT_proveedor());
-		    ps.setString(2, produc.getNombre_producto());
+			ps=cnn.prepareStatement("UPDATE productos nombre_producto=?,  SET NIT_proveedor=?, precio_compra=?, iva_compra=?, precio_venta=? WHERE Codigo=?");
+		  
+		    ps.setString(1, produc.getNombre_producto());
+		    ps.setInt(2, produc.getNIT_proveedor());
 		    ps.setDouble(3, produc.getPrecio_compra()); 
 		    ps.setDouble(4, produc.getIva_compra());
 		    ps.setDouble(5, produc.getPrecio_venta());

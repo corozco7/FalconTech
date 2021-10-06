@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/menu.css" >
-<link rel="stylesheet" type="text/css" href="css/style.css" >
+
 <link rel="shortcut icon" href="img/icons8-halcón-26.png">
 <meta charset="UTF-8">
 <title>Cliente</title>
@@ -27,7 +27,14 @@ co=request.getParameter("c");
 		<div class="menu">
 			<h3 class="logo">Falcon<span>Tech</span> 	</h3>
 				
-		
+		<div id="menuu">
+		<ul>
+			<li><a href="menu.jsp">Home</a></li>
+			<li><a href="Nosotros.jsp">Nosotros</a></li>
+			<li><a href="#">Servicios</a></li>
+			<li class="item-r"><a href="#">Contacto</a></li>
+		</ul>
+	</div>
 			<div class="hamburger-menu">
 				<div class="bar"></div>
 			</div>
@@ -42,13 +49,13 @@ co=request.getParameter("c");
 					<h2 class="title">Cliente</h2>
 					<p class="description">
 					</p>
-	  <form action="Servlet_Cliente" method="post">
+<form action="Servlet_Cliente" method="post">
 	  
 	  
 	  <table>
                <tr>
                  <td>Documento</td>
-                 <th><input type="text" placeholder="Documento" name="documento" Value="<%=doc%>" /></th>
+                 <th><input type="text" placeholder="Documento" name="documento" Value="<%=doc%>" required /></th>
               </tr>
               <tr>
                  <td>Nombre</td>
@@ -80,6 +87,7 @@ co=request.getParameter("c");
 	             <input class="boton4" type="submit" value="Eliminar" name="btneliminar">
 	  
 	  </form>
+	 
 				</div>
 			</header>
 		</div>
@@ -99,7 +107,12 @@ co=request.getParameter("c");
 			<li>
 				<a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img src="img/proveedor.png"></a>
 			</li>
-			
+			<li>
+				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
+			</li>
+			<li >
+				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
+			</li>
 		</ul>
 	</div>
 	<script type="text/javascript" src="js/menujs.js"></script>

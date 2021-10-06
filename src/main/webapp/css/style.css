@@ -7,23 +7,27 @@
 h2{height: 80px;}
 .title{ font-size: 5rem; margin-top: 5rem;margin-right: 55px; } 
 table{
-	font-size: 25px;	
+	font-size: 30px;	
 }
 
 input{
-    margin-bottom:15px;
+    margin-bottom:85px;
     padding: 6.5px;
     padding-left: 7px;
-    align-content: center;;
+    align-content: left;
 }
-.boton1,.boton2,.boton3,.boton4 {
+.btnNuevo,.btnNuevo2,.btnNuevo3,.btnNuevo4 {
 	margin-left: .5px;
 	margin-top: 12px;
 	border-radius: 5px;
-	font-size: 19px;
+	font-size: 29px;
 	font-family: "VT323";
 	
 }
 
-	
+
+.main-container{
+	background: white;
+}
+
 	

@@ -73,6 +73,12 @@ public class Usuario_DTO {
 		this.pass = pass;
 	}
 	
+	@Override
+	public String toString() {
+		return "Documento: " + documento + "\n" + "Nombre: " + nombre + "\n" +
+				"Apellido: " + apellido + "\n" + "Correo: " + correo + "\n" +
+				"Usuario: " + usuario + "\n" + "Contraseña: " + pass;
+	}
 	
 	
 }

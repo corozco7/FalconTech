@@ -64,16 +64,9 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 			<header>
 				<div class="overlay">
 				
-					<h1 class="title">¡Bienvenid@!
-					 </h1>
-					<h3> Estas a un solo click de lo mejor en tecnologia. </h3>
-					<p class="description">Facilitamos el acceso de equipos de ultima generación del mundo electronico
-					a todas las personas y compañias del mundo
-					.
-					</p>
-				
-						
-					<a href="https://www.misiontic2022.gov.co/portal/" class="btn">Mas Información</a>
+					<div class="title">¡Nosotros somos</div> <div class="logo">Falcon<span>Tech!</span> 	</div>
+					<li> Somos una empresa creada para las personas del mundo, buscamos innovar con tecnologia de ultima genereacion el mundo entero.</li>
+					
 
 				</div>
 	
@@ -100,9 +93,6 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 			</li>
 			<li>
 				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
-			</li>
-			<li >
-				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
 			</li>			
 		</ul>
 	</div>

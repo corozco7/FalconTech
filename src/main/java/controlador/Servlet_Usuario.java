@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 
@@ -39,6 +40,7 @@ public class Servlet_Usuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String nom,ape,cor,usu,pas;
 		int d;
 		boolean res;
@@ -70,6 +72,7 @@ public class Servlet_Usuario extends HttpServlet {
 		if (request.getParameter("btnconsultar")!=null) {
 			//accion para consultar un usuario
 			
+			
 		d=Integer.parseInt(request.getParameter("documento"));
 		usdto=new Usuario_DTO(d);
 		usdao=new Usuario_DAO();
@@ -77,6 +80,7 @@ public class Servlet_Usuario extends HttpServlet {
 			//se usan las mismas variables pero no hay problema por que se ejecutan en distintos if
 		
 		try {
+		
 			d=recdatos.getDocumento();
 			nom=recdatos.getNombre();
 			ape=recdatos.getApellido();
@@ -84,7 +88,9 @@ public class Servlet_Usuario extends HttpServlet {
 			usu=recdatos.getUsuario();
 			pas=recdatos.getPass();
 			//&& =concatenacion de dato viaja por la url
+		
 			response.sendRedirect("Usuario.jsp?do="+d+"&&n="+nom+"&&a="+ape+"&&c="+cor+"&&u="+usu+"&&p="+pas);
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "El usuario no existe");
 			response.sendRedirect("Usuario.jsp");
