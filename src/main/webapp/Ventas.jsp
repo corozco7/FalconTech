@@ -97,7 +97,7 @@
 	<div class="links">
 		<ul>
 			<li >
-				<a href="menu.jsp" style="--i: 0.05s">Home <img src="img/home.png"></a>
+				<a href="menu.jsp" style="--i: 0.05s">Home <img src="img/home.png"></a></li>
 			<li>
 				<a href="Usuario.jsp" style="--i: 0.1s">Usuario <img src="img/usuario.png"></a>
 			</li>
@@ -112,6 +112,9 @@
 			</li>
 			<li class="active">
 				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
+			</li>
+			<li  >
+				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/pc.png"></a>
 			</li>
 		</ul>
 	</div>

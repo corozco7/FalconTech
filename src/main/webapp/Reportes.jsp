@@ -1,29 +1,17 @@
-<%@page import="javax.swing.JOptionPane"%>
-<%@page import="modelo.Usuario_DTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/menu.css" >
 <link rel="stylesheet" type="text/css" href="css/Animacion.css" >
-<link rel="shortcut icon" href="img/icons8-halcón-26.png">
+<link rel="shortcut icon" href="img/icons8-halc�n-26.png">
 <link rel="stylesheet" href="css/icomoon/font.css">
 
-<meta charset="UTF-8">
-<title>Falcon Tech</title>
-
+<title>Reportes</title>
 </head>
 <body>
-<%
-HttpSession varsesion=request.getSession();
-Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
- if (us!=null){
-	// JOptionPane.showMessageDialog(null, us);
-	 }
-
-%>
-
 <div class="container">
 
 	<div class="navbar">
@@ -62,19 +50,14 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 	
 		<div class="main">
 			<header>
+			
 				<div class="overlay">
+				<input class="listado" type="button" name="listadousuarios" value="Listado de usuarios" onclick="location.href='ListadoUsuarios.jsp'">
+				<input class="listado" type="button" name="listadoclientes" value="Listado de clientes" onclick="location.href='ListadoClientes.jsp'">
+				<input class="listado" type="button" name="listadoventas" value="Ventas por cliente" onclick="location.href='VentasCliente.jsp'">
 				
-					<h1 class="title">¡Bienvenid@!
-					 </h1>
-					<h3> Estas a un solo click de lo mejor en tecnologia. </h3>
-					<p class="description">Facilitamos el acceso de equipos de ultima generación del mundo electronico
-					a todas las personas y compañias del mundo
-					.
-					</p>
 				
 						
-					<a href="https://www.misiontic2022.gov.co/portal/" class="btn">Mas Información</a>
-
 				</div>
 	
 			</header>
@@ -87,8 +70,9 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 	<div class="links">
 	
 		<ul>
-			<li class="active">
-				<a href="menu.jsp" style="--i: 0.05s">Home <img src="img/home.png"></a></li>
+			<li >
+				<a href="menu.jsp" style="--i: 0.05s">Home <img src="img/home.png"></a>
+				</li>
 			<li>
 				<a href="Usuario.jsp" style="--i: 0.1s">Usuario <img src="img/usuario.png"></a>
 			</li>
@@ -103,16 +87,20 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 			</li>
 			<li >
 				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
-			</li>	
-			<li  >
+			</li>
+			<li class="active" >
 				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/pc.png"></a>
-			</li>		
+			</li>
+						
 		</ul>
 	</div>
 
+
+
+
 	<script type="text/javascript" src="js/menujs.js"></script>
 </div>
-<div class="pie">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
+<div class="pie">� FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 
 </body>
 </html>
