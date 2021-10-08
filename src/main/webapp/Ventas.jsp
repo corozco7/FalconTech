@@ -1,3 +1,5 @@
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="modelo.Usuario_DTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,9 +9,19 @@
 
 <link rel="shortcut icon" href="img/icons8-halcón-26.png">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Gestión ventas</title>
 </head>
 <body>
+<%
+		HttpSession varsesion=request.getSession();
+		Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+		 if (us==null){
+			JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+			response.sendRedirect("index.jsp");
+			 }
+
+		%>
+		
 <div class="container">
 	<div class="navbar">
 
@@ -19,10 +31,11 @@
 				
 		<div id="menuu">
 		<ul>
-			<li><a href="menu.jsp">Home</a></li>
-			<li><a href="Nosotros.jsp">Nosotros</a></li>
-			<li><a href="#">Servicios</a></li>
-			<li class="item-r"><a href="#">Contacto</a></li>
+						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 		</ul>
 	</div>
 			<div class="hamburger-menu">
@@ -35,21 +48,24 @@
 	<div class="main-container">
 		<div class="main">
 			<header>
-				<div class="overlay">
+				<div class="overlay" style="background-color: black;">
 					<h2 class="title">Gestión Ventas</h2><p class="description"></p>
 				<form action="Servlet_Ventas" method="post">
+<!-- Falta validacion  -->	
 				<input type ="text" placeholder="Cedula" name="cedula" value="${cliente.getDocumento()}">
 				<input type="text" placeholder="Nombre" name="nombre" value="${cliente.getNombre()}">
 				<input type="submit" name="confirmar">
-				
+				<div class="letras">
 				<table >
+				<br>
 				<tr> 
-				<th>Codigo Producto</th>
-				<th> Seleccionar </th>
-				<th>Nombre producto</th>
-				<th>Cantidad producto</th>
-				<th>Precio total producto</th>				
+				<th style="font-size: 15px">Codigo Producto</th>
+				<th style="font-size: 15px"> Seleccionar </th>
+				<th style="font-size: 15px">Nombre producto</th>
+				<th style="font-size: 15px">Cantidad producto</th>
+				<th style="font-size: 15px">Precio total producto</th>				
 				</tr>
+				</div>
 				<tr>
 				<td><input type="text" name="codigo1" value="${producto1.getCodigo()}" ></td>
 				<td><input type="submit" name="verificarproducto1" ></td>
@@ -87,7 +103,8 @@
 					
 				 	
 	   
-	  
+	  </div>
+	  <div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 				</div>
 			</header>
 		</div>
@@ -111,10 +128,10 @@
 				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
 			</li>
 			<li class="active">
-				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
+				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/ventas.png"></a>
 			</li>
 			<li  >
-				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/pc.png"></a>
+				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/check.png"></a>
 			</li>
 		</ul>
 	</div>

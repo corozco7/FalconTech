@@ -1,3 +1,5 @@
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="modelo.Usuario_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +12,16 @@
 <title>Cliente</title>
 </head>
 <body>
+
+<%
+HttpSession varsesion=request.getSession();
+Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
+	 }
+
+%>
 	<%
 	String doc = "", nom = "", ape = "", dir = "", tel = "", co = "";
 	if (request.getParameter("do") != null) {
@@ -32,10 +44,11 @@
 
 				<div id="menuu">
 					<ul>
-						<li><a href="menu.jsp">Home</a></li>
-						<li><a href="Nosotros.jsp">Nosotros</a></li>
-						<li><a href="#">Servicios</a></li>
-						<li class="item-r"><a href="#">Contacto</a></li>
+						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -48,7 +61,7 @@
 		<div class="main-container">
 			<div class="main">
 				<header>
-					<div class="overlay">
+					<div class="overlay" style="background-color: black;">
 						<h2 class="title">Cliente</h2>
 						<p class="description"></p>
 						<form action="Servlet_Cliente" method="post">
@@ -89,7 +102,7 @@
 
 							</table>
 
-							<input class="boton1" type="submit" value="Insertar"
+							<input  class="boton1" type="submit" value="Insertar"
 								name="btninsertar"> <input class="boton2" type="submit"
 								value="Consultar" name="btnconsultar"> <input
 								class="boton3" type="submit" value="Actualizar"
@@ -97,7 +110,7 @@
 								type="submit" value="Eliminar" name="btneliminar">
 
 						</form>
-
+<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 					</div>
 				</header>
 			</div>
@@ -106,21 +119,21 @@
 		</div>
 		<div class="links">
 			<ul>
-				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
-						src="img/usuario.png"></a></li>
-				<li class="active"><a href="Cliente.jsp" style="-i: 0.15s">Cliente
-						<img src="img/cliente.png">
+				<li ><a href="Usuario.jsp" style="--i: 0.1s">Usuario
+						<img src="img/usuario.png">
 				</a></li>
-				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
+				<li class="active"><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
+						src="img/cliente.png"></a></li>
+				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
 						src="img/proveedor.png"></a></li>
-				<li><a href="Productos.jsp" style="-i: 0.2s">Producto <img
+				<li><a href="Productos.jsp" style="--i: 0.2s">Producto <img
 						src="img/pc.png"></a></li>
-				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
-						src="img/pc.png"></a></li>
-				<li><a href="Reportes.jsp" style="-i: 0.2s">Reportes <img
-						src="img/pc.png"></a></li>
+				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
+						src="img/ventas.png"></a></li>
+			<li><a href="Reportes.jsp" style="--i: 0.2s">Reportes <img
+						src="img/check.png"></a></li>
 			</ul>
 		</div>
 		<script type="text/javascript" src="js/menujs.js"></script>

@@ -132,6 +132,7 @@ public class Servlet_Ventas extends HttpServlet {
 							+ "Total sin IVA: $" + totalsiniva + "\n" + "Total IVA: $" + totaliva + "\n"
 							+ "TOTAL A PAGAR: $" + total);
 
+			
 			if (i == 0) {
 
 				int cedula_usuario, cedula_cliente, ID;
@@ -141,6 +142,7 @@ public class Servlet_Ventas extends HttpServlet {
 				cedula_usuario = Integer.parseInt(request.getParameter("usuario"));
 				Ventas_DTO ventdto = new Ventas_DTO(cedula_cliente, cedula_usuario, totaliva, totalsiniva, total);
 				ID = ventdao.InsertarVenta(ventdto);
+				
 				if (ID == 0) {
 					JOptionPane.showMessageDialog(null, "Venta no realizada");
 					response.sendRedirect("Ventas.jsp");

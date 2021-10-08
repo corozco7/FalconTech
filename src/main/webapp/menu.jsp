@@ -1,3 +1,5 @@
+<%@page import="javax.websocket.SendResult"%>
+<%@page import="org.apache.catalina.ha.backend.Sender"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="modelo.Usuario_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,8 +20,9 @@
 <%
 HttpSession varsesion=request.getSession();
 Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
- if (us!=null){
-	// JOptionPane.showMessageDialog(null, us);
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
 	 }
 
 %>
@@ -41,10 +44,10 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 		
 			<div id="menuu">
 		<ul>
-			<li><a href="menu.jsp">Home</a></li>
-			<li><a href="Nosotros.jsp">Nosotros</a></li>
-			<li><a href="#">Servicios</a></li>
-			<li class="item-r"><a href="#">Contacto</a></li>
+			            <li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
 		</ul>
 	</div>
 			<div class="hamburger-menu">
@@ -68,13 +71,14 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 					 </h1>
 					<h3> Estas a un solo click de lo mejor en tecnologia. </h3>
 					<p class="description">Facilitamos el acceso de equipos de ultima generación del mundo electronico
-					a todas las personas y compañias del mundo
-					.
-					</p>
-				
-						
+					a todas las personas y compañias del mundo</p>
+									
 					<a href="https://www.misiontic2022.gov.co/portal/" class="btn">Mas Información</a>
 
+
+<br>
+<br>
+<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 				</div>
 	
 			</header>
@@ -102,17 +106,17 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
 			</li>
 			<li >
-				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/pc.png"></a>
+				<a href="Ventas.jsp" style="--i: 0.2s">Ventas <img src="img/ventas.png"></a>
 			</li>	
 			<li  >
-				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/pc.png"></a>
+				<a href="Reportes.jsp" style="--i: 0.2s">Reportes <img src="img/check.png"></a>
 			</li>		
 		</ul>
 	</div>
 
 	<script type="text/javascript" src="js/menujs.js"></script>
 </div>
-<div class="pie">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
+
 
 </body>
 </html>

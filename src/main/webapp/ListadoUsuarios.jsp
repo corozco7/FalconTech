@@ -1,3 +1,4 @@
+<%@page import="javax.swing.JOptionPane"%>
 <%@page import="modelo.Reporte_DAO"%>
 <%@page import="modelo.Usuario_DTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -19,6 +20,15 @@ table, th, td {
 <title>Listado Usuarios</title>
 </head>
 <body>
+<%
+HttpSession varsesion=request.getSession();
+Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
+	 }
+
+%>
 	<%
 Reporte_DAO rep=new Reporte_DAO();
 ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
@@ -44,14 +54,16 @@ ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
 			<div class="menu">
 				<div class="logo">
 					Falcon<span>Tech</span>
+					
 				</div>
 
 				<div id="menuu">
 					<ul>
-						<li><a href="menu.jsp">Home</a></li>
-						<li><a href="Nosotros.jsp">Nosotros</a></li>
-						<li><a href="#">Servicios</a></li>
-						<li class="item-r"><a href="#">Contacto</a></li>
+						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+					<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -70,15 +82,20 @@ ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
 			<div class="main">
 				<header>
 
-					<div class="overlay">
+					<div class="overlay" style="background-color: black;">
+					<div class="letras">
+					<h1 class="title" style="font-size: 20px">LISTADO DE USUARIOS</h1> 
+					<br>
+				
 						<table>
 							<tr>
-								<th>Cédula</th>
-								<th>Nombre</th>
-								<th>Apellido</th>
-								<th>Correo Electronico</th>
-								<th>Usuario</th>
-								<th>Contraseña</th>
+							
+								<th style="font-size: 18px">Cédula</th>
+								<th style="font-size: 18px">Nombre</th>
+								<th style="font-size: 18px">Apellido</th>
+								<th style="font-size: 18px">Correo Electronico</th>
+								<th style="font-size: 18px">Usuario</th>
+								<th style="font-size: 18px">Contraseña</th>
 
 							</tr>
 							<% 
@@ -88,12 +105,12 @@ ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
 						
 								%>
 								<tr>
-								<td> <%=usu.getDocumento() %></td>
-								<td><%=usu.getNombre() %></td>
-								<td><%=usu.getApellido() %></td>
-								<td><%=usu.getCorreo() %></td>
-								<td><%=usu.getUsuario() %></td>
-								<td><%= usu.getPass()%></td>
+								<td style="font-size: 15px"> <%=usu.getDocumento() %></td>
+								<td style="font-size: 15px"><%=usu.getNombre() %></td>
+								<td style="font-size: 15px"><%=usu.getApellido() %></td>
+								<td style="font-size: 15px"><%=usu.getCorreo() %></td>
+								<td style="font-size: 15px"><%=usu.getUsuario() %></td>
+								<td style="font-size: 15px"><%= usu.getPass()%></td>
 								
 								</tr>
 								
@@ -107,6 +124,8 @@ ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
 
 
 						</table>
+						</div>
+					<div style="font-size: 15px; margin-top: 20px;"><br>© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 					</div>
 
 				</header>
@@ -119,20 +138,20 @@ ArrayList<Usuario_DTO> listusu=rep.listadousuarios();
 		<div class="links">
 
 			<ul>
-				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
+				<li><a href="Usuario.jsp" style="--i: 0.1s">Usuario <img
 						src="img/usuario.png"></a></li>
-				<li><a href="Cliente.jsp" style="-i: 0.15s">Cliente <img
+				<li><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
 						src="img/cliente.png"></a></li>
-				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
+				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
 						src="img/proveedor.png"></a></li>
-				<li><a href="Productos.jsp" style="-i: 0.2s">Producto <img
+				<li><a href="Productos.jsp" style="--i: 0.2s">Producto <img
 						src="img/pc.png"></a></li>
-				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
-						src="img/pc.png"></a></li>
-				<li class="active"><a href="Reportes.jsp" style="-i: 0.2s">Reportes
-						<img src="img/pc.png">
+				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
+						src="img/ventas.png"></a></li>
+				<li class="active"><a href="Reportes.jsp" style="--i: 0.2s">Reportes
+						<img src="img/check.png">
 				</a></li>
 
 			</ul>

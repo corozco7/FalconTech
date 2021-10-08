@@ -1,3 +1,5 @@
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="modelo.Usuario_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,9 +9,18 @@
 
 <link rel="shortcut icon" href="img/icons8-halcón-26.png">
 <meta charset="UTF-8">
-<title>Producto</title>
+<title>Productos</title>
 </head>
 <body>
+<%
+HttpSession varsesion=request.getSession();
+Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
+	 }
+
+%>
 	<%
 	String cod = "", nit = "", nom = "", prec = "", iva = "";
 	if (request.getParameter("c") != null) {
@@ -31,10 +42,10 @@
 
 				<div id="menuu">
 					<ul>
-						<li><a href="menu.jsp">Home</a></li>
-						<li><a href="Nosotros.jsp">Nosotros</a></li>
-						<li><a href="#">Servicios</a></li>
-						<li class="item-r"><a href="#">Contacto</a></li>
+						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -47,7 +58,7 @@
 		<div class="main-container">
 			<div class="main">
 				<header>
-					<div class="overlay">
+					<div class="overlay" style="background-color: black;">
 						<h2 class="title">Productos</h2>
 						<p class="description"></p>
 
@@ -59,7 +70,7 @@
 						</form>
 
 
-
+<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 
 					</div>
 				</header>
@@ -69,19 +80,21 @@
 		</div>
 		<div class="links">
 			<ul>
-				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
-						src="img/usuario.png"></a></li>
-				<li><a href="Cliente.jsp" style="-i: 0.15s">Cliente <img
-						src="img/cliente.png"></a></li>
-				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
-						src="img/proveedor.png"></a></li>
-				<li class="active"><a href="Productos.jsp" style="-i: 0.2s">Producto
-						<img src="img/pc.png">
+				<li ><a href="Usuario.jsp" style="--i: 0.1s">Usuario
+						<img src="img/usuario.png">
 				</a></li>
-				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
+				<li><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
+						src="img/cliente.png"></a></li>
+				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
+						src="img/proveedor.png"></a></li>
+				<li class="active"><a href="Productos.jsp" style="--i: 0.2s">Producto <img
 						src="img/pc.png"></a></li>
+				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
+						src="img/ventas.png"></a></li>
+			<li><a href="Reportes.jsp" style="--i: 0.2s">Reportes <img
+						src="img/check.png"></a></li>
 
 
 			</ul>

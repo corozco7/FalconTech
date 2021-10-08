@@ -18,7 +18,7 @@
 <%
 HttpSession varsesion=request.getSession();
 Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
- if (us!=null){
+ if (us==null){
 	// JOptionPane.showMessageDialog(null, us);
 	 }
 
@@ -41,10 +41,11 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 		
 			<div id="menuu">
 		<ul>
-			<li><a href="menu.jsp">Home</a></li>
-			<li><a href="Nosotros.jsp">Nosotros</a></li>
-			<li><a href="#">Servicios</a></li>
-			<li class="item-r"><a href="#">Contacto</a></li>
+						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
+						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
+						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 		</ul>
 	</div>
 			<div class="hamburger-menu">
@@ -62,12 +63,23 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 	
 		<div class="main">
 			<header>
-				<div class="overlay">
+				<div class="overlay" style="background-color: black;">
 				
-					<div class="title">¡Nosotros somos</div> <div class="logo">Falcon<span>Tech!</span> 	</div>
-					<li> Somos una empresa creada para las personas del mundo, buscamos innovar con tecnologia de ultima genereacion el mundo entero.</li>
+					<div class="title" style="background-color: black;">¡Nosotros somos</div> <div  style="background-color: black;" class="logo">Falcon<span>Tech!</span> 	</div>
+					<div class="letter" Style="text-align: center ; margin-left: 70px; margin-right: 70px; background-color: black; color:white; font-family: Montserrat; font-size: 20px"> Somos una empresa creada para las personas del mundo, buscamos innovar con tecnologia de ultima genereacion el mundo entero.</div>
+					<br>
 					
-
+					<div style="font-family: Share Tech Mono; font-size: 20px; align-content: center;">By</div>
+					<br>
+					<div class="name" style="font-family: Share Tech Mono; font-size: 20px;"> Cesar Orozco &nbsp &nbsp  Diana Penagos  &nbsp &nbsp  Saira Puentes  &nbsp &nbsp   Laura Rios</div>
+				
+					<div class="avatar"> <img src="img/cesar.png"> &nbsp &nbsp &nbsp &nbsp  <img src="img/diana}.png">  &nbsp &nbsp  <img src="img/saira.png">  &nbsp &nbsp &nbsp  <img src="img/Laura.png"></div>
+							<br>
+							<br>
+							<br>
+							<br>
+						
+							<div style="font-size: 15px">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>	
 				</div>
 	
 			</header>
@@ -94,12 +106,16 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 			<li>
 				<a href="Productos.jsp" style="--i: 0.2s">Producto <img src="img/pc.png"></a>
 			</li>			
+			<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
+						src="img/ventas.png"></a></li>
+			<li><a href="Reportes.jsp" style="--i: 0.2s">Reportes <img
+						src="img/check.png"></a></li>
 		</ul>
 	</div>
 
 	<script type="text/javascript" src="js/menujs.js"></script>
 </div>
-<div class="pie">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
+
 
 </body>
 </html>

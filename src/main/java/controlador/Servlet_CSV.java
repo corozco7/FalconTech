@@ -89,7 +89,7 @@ public class Servlet_CSV extends HttpServlet {
 					response.sendRedirect("Productos.jsp");
 				}
 				}catch(Exception e) {
-					JOptionPane.showMessageDialog(null, "Error al cargar el archivoooooo: "+e);
+					JOptionPane.showMessageDialog(null, "Error al cargar el archivo: "+e);
 									}
 					
 				
