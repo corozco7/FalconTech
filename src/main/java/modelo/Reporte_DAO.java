@@ -12,6 +12,7 @@ import controlador.Conexion;
 
 public class Reporte_DAO {
 	Conexion con=new Conexion();
+	
 	Connection cnn=con.conexiondb();
 	PreparedStatement ps;
 	ResultSet rs;

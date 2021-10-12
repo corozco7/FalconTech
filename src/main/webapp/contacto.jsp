@@ -24,7 +24,7 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 
 %>
 
-<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
+<div class="container"  id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 
 	<div class="navbar">
 <div class="social-bar">
@@ -43,7 +43,7 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 		<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-					
+						
 						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
 						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 		</ul>
@@ -66,19 +66,17 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 				<div class="overlay" style="background-color: black;">
 				<br>
 				<br>
-				
-					<div class="title" style="background-color: black;">¡Nosotros somos</div> <div  style="margin:0;padding:0;background-color: black;" class="logo">Falcon<span>Tech!</span> 	</div>
-					<div class="letter" Style="text-align: center ; margin-left: 70px; margin-right: 70px; background-color: black; color:white; font-family: Montserrat; font-size: 20px"> Somos una empresa creada para las personas del mundo, buscamos innovar con tecnologia de ultima genereacion el mundo entero.</div>
-					<br>
+				<br>
+				<br>
+					<div class="title" style="background-color: black; font-size: 30px">LLAMANOS</div> 
+					<div  Style="text-align: center ; margin-left: 70px; margin-right: 70px; background-color: black; color:white; font-family: Montserrat; font-size: 20px"> </div>
 					
-					<div style="font-family: Share Tech Mono; font-size: 20px; align-content: center;">Nuestro equipo</div>
+					<div style="font-family: Share Tech Mono; font-size: 30px;"><img class="i" src="img/telefono.png"> 3012345678 - 3098765432</div>
 					<br>
-					<div class="name" style="font-family: Share Tech Mono; font-size: 20px;"> Cesar Orozco &nbsp &nbsp  Diana Penagos  &nbsp &nbsp  Saira Puentes  &nbsp &nbsp   Laura Rios</div>
-				
-					<div class="avatar"> <img src="img/cesar.png"> &nbsp &nbsp &nbsp &nbsp  <img src="img/diana}.png">  &nbsp &nbsp  <img src="img/saira.png">  &nbsp &nbsp &nbsp  <img src="img/Laura.png"></div>
-							<br>
-							<br>
-							<br>
+				<div class="title" style="background-color: black; font-size: 30px">VISITANOS</div> 
+				<br>
+				 <iframe style="border: 10px; color: white;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1988.4839836653987!2d-74.07539075331937!3d4.599760636706297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sco!4v1633741801138!5m2!1sen!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					
 							<br>
 						
 							<div style="font-size: 15px">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>	

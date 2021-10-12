@@ -22,7 +22,7 @@
 
 		%>
 		
-<div class="container">
+<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 	<div class="navbar">
 
 	
@@ -33,8 +33,8 @@
 		<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
-						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						
+						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
 						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 		</ul>
 	</div>

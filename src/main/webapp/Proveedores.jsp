@@ -31,7 +31,7 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 		ciu = request.getParameter("c");
 	}
 	%>
-	<div class="container">
+	<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 		<div class="navbar">
 
 
@@ -43,8 +43,8 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 					<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
-						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						
+						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
 						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 					</ul>
 				</div>
@@ -60,12 +60,12 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 			<div class="main">
 				<header>
 					<div class="overlay" style="background-color: black;">
-						<h2 class="title">Proveedores</h2>
+						<h2 class="title" style="font-size: 60px; padding-right: 40px">Proveedores </h2>
 						<p class="description"></p>
 						<form action="Servlet_Proveedor" method="post">
 
 
-							<table>
+							<table  style="margin-left: 60px; font-family: Share Tech Mono; font-size: 20px; ">
 								<tr>
 									<td>NIT</td>
 									<th><input type="text" placeholder="NIT" name="NIT"
@@ -94,13 +94,17 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 								</tr>
 								<tr>
 							</table>
+							<br>
 
-							<input class="boton1" type="submit" value="Insertar"
-								name="btninsertar"> <input class="boton2" type="submit"
-								value="Consultar" name="btnconsultar"> <input
-								class="boton3" type="submit" value="Actualizar"
-								name="btnactualizar"> <input class="boton4"
-								type="submit" value="Eliminar" name="btneliminar">
+							<input class="button"  style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #24A249;  class="boton1" type="submit" value="Insertar"
+								name="btninsertar" >
+								
+						 <input class="button" style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #F48225;"  class="boton2" type="submit"
+								value="Consultar" name="btnconsultar">
+						 <input	class="button" style="font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #5CA3FD"  class="boton3" type="submit" value="Actualizar"
+								name="btnactualizar"> 
+						<input class="button" style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px;" class="boton4" type="submit" value="Eliminar" name="btneliminar">
+
 
 						</form>
 						<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>

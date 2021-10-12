@@ -27,13 +27,13 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 
 %>
 
-<div class="container">
+<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 
 	<div class="navbar">
 <div class="social-bar">
 	
 	<a href ="https://www.facebook.com/" class="icon icon-facebook" target= "_blank"><img src="https://img.icons8.com/ios-glyphs/30/000000/facebook-circled--v2.png"/></a>
-	<a href ="https://twitter.com/" class="icon icon-twitter" target= "_blank"><img src="img/twitter.png"></a>
+	<a href ="https://www.whatsapp.com/" class="icon icon-twitter" target= "_blank"><img src="img/wa.png"></a>
 	<a href ="https://www.youtube.com/" class="icon icon-youtobe" target= "_blank"><img src="img/youtube.png"></a>
 	<a href ="https://www.instagram.com/?hl=es" class="icon icon-instagram" target= "_blank"><img src="img/instagram.png"></a>
 </div>
@@ -44,10 +44,11 @@ Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
 		
 			<div id="menuu">
 		<ul>
-			            <li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
+			<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-						<li style="font-size: 19px"><a href="#">Productos y Servicios</a></li>
-						<li style="font-size: 19px" class="item-r"><a href="#">Contacto</a></li>
+						
+						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 		</ul>
 	</div>
 			<div class="hamburger-menu">
