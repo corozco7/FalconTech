@@ -5,7 +5,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.Reporte_DAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,25 +22,25 @@ table, th, td {
 <title>Ventas por cliente</title>
 </head>
 <body>
-<%
-		HttpSession varsesion=request.getSession();
-		Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
-		 if (us==null){
-			JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
-			response.sendRedirect("index.jsp");
-			 }
-
-		%>
-		
 	<%
-Reporte_DAO rep=new Reporte_DAO();
-ArrayList<Reporte_DTO> listven=rep.listadoventas();
-if(listven==null){
-	JOptionPane.showMessageDialog(null, "No se han encontrado ventas realizadas por los clientes");
-response.sendRedirect("Reportes.jsp");
-}
-%>
-	<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
+	HttpSession varsesion = request.getSession();
+	Usuario_DTO us = (Usuario_DTO) varsesion.getAttribute("usuario");
+	if (us == null) {
+		JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+		response.sendRedirect("index.jsp");
+	}
+	%>
+
+	<%
+	Reporte_DAO rep = new Reporte_DAO();
+	ArrayList<Reporte_DTO> listven = rep.listadoventas();
+	if (listven.isEmpty()) {
+		JOptionPane.showMessageDialog(null, "No se han encontrado ventas realizadas por los clientes");
+		response.sendRedirect("Reportes.jsp");
+	}
+	%>
+	<div class="container" id="Layer1"
+		style="width: auto; height: auto; overflow: scroll;">
 
 		<div class="navbar">
 			<div class="social-bar">
@@ -66,9 +66,10 @@ response.sendRedirect("Reportes.jsp");
 					<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-						
-						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
-						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
+
+						<li style="font-size: 19px" class="item-r"><a
+							href="contacto.jsp">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR=#E20F2F>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -88,44 +89,44 @@ response.sendRedirect("Reportes.jsp");
 				<header>
 
 					<div class="overlay">
-					<div class="letras">
-					<h1 class="title" style="font-size: 20px">Ventas Cliente</h1> 
-						<br>
-						<table>
-							<tr>
-								<th style="font-size: 18px">Cédula</th>
-								<th style="font-size: 18px">Nombre</th>
-								<th style="font-size: 18px">Valor total ventas</th>
-								
+						<div class="letras">
+							<h1 class="title" style="font-size: 20px">Ventas Cliente</h1>
+							<br>
+							<table>
+								<tr>
+									<th style="font-size: 18px">Cédula</th>
+									<th style="font-size: 18px">Nombre</th>
+									<th style="font-size: 18px">Valor total ventas</th>
 
-							</tr>
-							<% 
-							
-							for (Reporte_DTO ven: listven){
-								
-						
+
+								</tr>
+								<%
+								for (Reporte_DTO ven : listven) {
 								%>
 								<tr>
-								<td style="font-size: 15px"> <%=ven.getCedula_cliente() %></td>
-								<td style="font-size: 15px"><%=ven.getNombre_cliente() %></td>
-								<td style="font-size: 15px"><%=ven.getVentas() %></td>
-								
-								
+									<td style="font-size: 15px"><%=ven.getCedula_cliente()%></td>
+									<td style="font-size: 15px"><%=ven.getNombre_cliente()%></td>
+									<td style="font-size: 15px"><%=ven.getVentas()%></td>
+
+
 								</tr>
-								
-								
-								
-							<%} %>
-							
+
+
+
+								<%
+								}
+								%>
 
 
 
 
 
-						</table>
+
+							</table>
+						</div>
+						<div style="font-size: 15px; margin-top: 20px;">©
+							FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 					</div>
-					<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
-                    </div>
 				</header>
 
 			</div>
@@ -136,19 +137,19 @@ response.sendRedirect("Reportes.jsp");
 		<div class="links">
 
 			<ul>
-				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="--i: 0.1s">Usuario <img
+				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
 						src="img/usuario.png"></a></li>
-				<li><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
+				<li><a href="Cliente.jsp" style="-i: 0.15s">Cliente <img
 						src="img/cliente.png"></a></li>
-				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
+				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
 						src="img/proveedor.png"></a></li>
-				<li><a href="Productos.jsp" style="--i: 0.2s">Producto <img
+				<li><a href="Productos.jsp" style="-i: 0.2s">Producto <img
 						src="img/pc.png"></a></li>
-				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
+				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
 						src="img/ventas.png"></a></li>
-				<li class="active"><a href="Reportes.jsp" style="--i: 0.2s">Reportes
+				<li class="active"><a href="Reportes.jsp" style="-i: 0.2s">Reportes
 						<img src="img/check.png">
 				</a></li>
 

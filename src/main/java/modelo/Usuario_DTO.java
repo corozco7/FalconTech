@@ -5,12 +5,12 @@ public class Usuario_DTO {
 	private int documento;
 	private String nombre;
 	private String apellido;
-	private String correo;	
+	private String correo;
 	private String usuario;
 	private String pass;
-	
+
 	public Usuario_DTO(int documento, String nombre, String apellido, String correo, String usuario, String pass) {
-		
+
 		this.documento = documento;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -18,12 +18,11 @@ public class Usuario_DTO {
 		this.usuario = usuario;
 		this.pass = pass;
 	}
-	
+
 	public Usuario_DTO(int documento) {
 		super();
 		this.documento = documento;
 	}
-
 
 	public int getDocumento() {
 		return documento;
@@ -72,13 +71,11 @@ public class Usuario_DTO {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Documento: " + documento + "\n" + "Nombre: " + nombre + "\n" +
-				"Apellido: " + apellido + "\n" + "Correo: " + correo + "\n" +
-				"Usuario: " + usuario + "\n" + "Contraseña: " + pass;
+		return "Documento: " + documento + "\n" + "Nombre: " + nombre + "\n" + "Apellido: " + apellido + "\n"
+				+ "Correo: " + correo + "\n" + "Usuario: " + usuario + "\n" + "Contraseña: " + pass;
 	}
-	
-	
+
 }

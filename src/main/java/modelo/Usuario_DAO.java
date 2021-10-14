@@ -22,14 +22,13 @@ public class Usuario_DAO {
 		try {
 			usu = consultarusuario(us);
 			if (usu == null) {
-				ps= cnn.prepareStatement("SELECT Usuario FROM usuarios WHERE Usuario=?");
+				ps = cnn.prepareStatement("SELECT Usuario FROM usuarios WHERE Usuario=?");
 				ps.setString(1, us.getUsuario());
-				rs=ps.executeQuery();
+				rs = ps.executeQuery();
 				if (rs.next()) {
 					JOptionPane.showMessageDialog(null, "El usuario ya existe");
 					return dat;
-				}
-				else {
+				} else {
 					ps = cnn.prepareStatement("INSERT INTO usuarios VALUES(?,?,?,?,?,?)");
 					ps.setInt(1, us.getDocumento());
 					ps.setString(2, us.getNombre());
@@ -40,7 +39,7 @@ public class Usuario_DAO {
 					x = ps.executeUpdate();
 					if (x > 0) {
 						dat = true;
-						
+
 					}
 				}
 			}
