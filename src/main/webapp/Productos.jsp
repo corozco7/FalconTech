@@ -12,14 +12,15 @@
 <title>Productos</title>
 </head>
 <body>
-	<%
-	HttpSession varsesion = request.getSession();
-	Usuario_DTO us = (Usuario_DTO) varsesion.getAttribute("usuario");
-	if (us == null) {
-		JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
-		response.sendRedirect("index.jsp");
-	}
-	%>
+<%
+HttpSession varsesion=request.getSession();
+Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
+	 }
+
+%>
 	<%
 	String cod = "", nit = "", nom = "", prec = "", iva = "";
 	if (request.getParameter("c") != null) {
@@ -30,8 +31,7 @@
 		iva = request.getParameter("i");
 	}
 	%>
-	<div class="container" id="Layer1"
-		style="width: auto; height: auto; overflow: scroll;">
+	<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 		<div class="navbar">
 
 
@@ -44,10 +44,9 @@
 					<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-
-						<li style="font-size: 19px" class="item-r"><a
-							href="contacto.jsp">Contacto</a></li>
-						<HR WIDTH=700PX SIZE=10 COLOR=#E20F2F>
+						
+						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -61,8 +60,7 @@
 			<div class="main">
 				<header>
 					<div class="overlay" style="background-color: black;">
-						<h2 class="title" style="font-size: 80px; padding-right: 40px">Productos
-						</h2>
+						<h2 class="title" style="font-size: 80px; padding-right: 40px">Productos </h2>
 						<p class="description"></p>
 
 						<form action="Servlet_CSV" method="post"
@@ -73,8 +71,7 @@
 						</form>
 
 
-						<div style="font-size: 15px; margin-top: 20px;">©
-							FalconTech.co by Equipo 1 MisionTic2022 2021</div>
+<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 
 					</div>
 				</header>
@@ -84,21 +81,20 @@
 		</div>
 		<div class="links">
 			<ul>
-				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
-						src="img/usuario.png">
+				<li ><a href="Usuario.jsp" style="--i: 0.1s">Usuario
+						<img src="img/usuario.png">
 				</a></li>
-				<li><a href="Cliente.jsp" style="-i: 0.15s">Cliente <img
+				<li><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
 						src="img/cliente.png"></a></li>
-				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
+				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
 						src="img/proveedor.png"></a></li>
-				<li class="active"><a href="Productos.jsp" style="-i: 0.2s">Producto
-						<img src="img/pc.png">
-				</a></li>
-				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
+				<li class="active"><a href="Productos.jsp" style="--i: 0.2s">Producto <img
+						src="img/pc.png"></a></li>
+				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
 						src="img/ventas.png"></a></li>
-				<li><a href="Reportes.jsp" style="-i: 0.2s">Reportes <img
+			<li><a href="Reportes.jsp" style="--i: 0.2s">Reportes <img
 						src="img/check.png"></a></li>
 
 

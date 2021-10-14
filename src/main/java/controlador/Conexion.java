@@ -6,19 +6,19 @@ import java.sql.SQLException;
 
 public class Conexion {
 	Connection cnn;
-
 	public Connection conexiondb() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			try {
-				cnn = DriverManager.getConnection("jdbc:mysql://localhost/falcon_tech", "root", "");
+		try {
+			cnn=DriverManager.getConnection("jdbc:mysql://localhost/falcon_tech","root","");
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-
-			}
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+					
+		}
+			
+		
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

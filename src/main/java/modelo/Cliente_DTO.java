@@ -1,17 +1,17 @@
 package modelo;
 
 public class Cliente_DTO {
-
+	
 	private int documento;
 	private String nombre;
 	private String apellido;
 	private String direccion;
 	private String telefono;
 	private String correo;
-
+	
 	public Cliente_DTO(int documento, String nombre, String apellido, String direccion, String telefono,
 			String correo) {
-
+	
 		this.documento = documento;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -19,11 +19,14 @@ public class Cliente_DTO {
 		this.telefono = telefono;
 		this.correo = correo;
 	}
-
+	
 	public Cliente_DTO(int documento) {
-
+		
 		this.documento = documento;
 	}
+
+
+
 
 	public int getDocumento() {
 		return documento;
@@ -72,5 +75,8 @@ public class Cliente_DTO {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
+	
+	
+	
 }
+

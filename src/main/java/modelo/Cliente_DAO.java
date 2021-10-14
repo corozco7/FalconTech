@@ -10,96 +10,93 @@ import javax.swing.JOptionPane;
 import controlador.Conexion;
 
 public class Cliente_DAO {
-	Conexion con = new Conexion();
-	Connection cnn = con.conexiondb();
+	Conexion con=new Conexion();
+	Connection cnn=con.conexiondb();
 	PreparedStatement ps;
 	ResultSet rs;
 	Cliente_DTO usu;
-
 	public boolean insertarusuario(Cliente_DTO us) {
 		int x;
-		boolean dat = false;
+		boolean dat=false;
 		try {
-			usu = consultarusuario(us);
-			if (usu == null) {
-				ps = cnn.prepareStatement("INSERT INTO clientes VALUES(?,?,?,?,?,?)");
-				ps.setInt(1, us.getDocumento());
-				ps.setString(2, us.getNombre());
-				ps.setString(3, us.getApellido());
-				ps.setString(4, us.getDireccion());
-				ps.setString(5, us.getTelefono());
-				ps.setString(6, us.getCorreo());
-				x = ps.executeUpdate();
-				if (x > 0) {
-					dat = true;
-
-				}
-			}
-
+			usu=consultarusuario(us);
+			if(usu==null) {
+			ps=cnn.prepareStatement("INSERT INTO clientes VALUES(?,?,?,?,?,?)");
+		    ps.setInt(1, us.getDocumento());
+		    ps.setString(2, us.getNombre());
+		    ps.setString(3, us.getApellido());
+		    ps.setString(4, us.getDireccion());
+		    ps.setString(5, us.getTelefono());
+		    ps.setString(6, us.getCorreo());
+		    x= ps.executeUpdate();
+		if(x>0) {
+			dat=true;
+			
+		}}
+		
 			else {
-				JOptionPane.showMessageDialog(null, "El usuario ya existe");
-			}
-
+			JOptionPane.showMessageDialog(null, "El usuario ya existe");
+		}
+			
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Error al insertar" + e);
+	    JOptionPane.showMessageDialog(null, "Error al insertar"+e);
 		}
 		return dat;
 	}
-
-	public Cliente_DTO consultarusuario(Cliente_DTO us) {
-		// ps es el enlace con my sql
-		try {
-			ps = cnn.prepareStatement("SELECT * FROM clientes WHERE documento=?");
-			ps.setInt(1, us.getDocumento());
-			rs = ps.executeQuery();
-			// .next me permite ver si por lo menos hay un resgistro
-			if (rs.next()) {
-				usu = new Cliente_DTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6));
+		
+		public Cliente_DTO consultarusuario(Cliente_DTO us) {
+			//ps es el enlace con my sql
+			try {
+				ps=cnn.prepareStatement("SELECT * FROM clientes WHERE documento=?");
+			    ps.setInt(1, us.getDocumento());
+			    rs=ps.executeQuery();
+			    //.next me permite ver si por lo menos hay un resgistro
+			    if(rs.next()) {
+			     usu= new Cliente_DTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+			    }
+			
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
 			}
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
+	return usu;
 		}
-		return usu;
-	}
-
+		
 	public int eliminar(Cliente_DTO us) {
-		int x = 0;
+		int x=0;
 		try {
-			ps = cnn.prepareStatement("DELETE FROM clientes WHERE documento=?");
-			ps.setInt(1, us.getDocumento());
-			x = ps.executeUpdate();
+			ps=cnn.prepareStatement("DELETE FROM clientes WHERE documento=?");
+		    ps.setInt(1, us.getDocumento());
+		   x= ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		return x;
+		} return x;
 	}
-
+		
 	public boolean actualizar(Cliente_DTO usu) {
-		boolean dat = false;
+		boolean dat=false;
 		int x;
 		try {
-			ps = cnn.prepareStatement(
-					"UPDATE clientes SET Nombre=?, Apellido=?, Direccion=?, Telefono=?, Correo=? WHERE documento=?");
-			ps.setString(1, usu.getNombre());
-			ps.setString(2, usu.getApellido());
-			ps.setString(3, usu.getDireccion());
-			ps.setString(4, usu.getTelefono());
-			ps.setString(5, usu.getCorreo());
-			ps.setInt(6, usu.getDocumento());
-			x = ps.executeUpdate();
-			if (x > 0) {
-				dat = true;
-			}
-
+			ps=cnn.prepareStatement("UPDATE clientes SET Nombre=?, Apellido=?, Direccion=?, Telefono=?, Correo=? WHERE documento=?");
+		    ps.setString(1, usu.getNombre());
+		    ps.setString(2, usu.getApellido());
+		    ps.setString(3, usu.getDireccion()); 
+		    ps.setString(4, usu.getTelefono());
+		    ps.setString(5, usu.getCorreo());
+		    ps.setInt(6, usu.getDocumento());
+		   x= ps.executeUpdate();
+		   if(x>0) {
+			   dat= true;
+		   }
+		    
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return dat;
 	}
-
+		
+		
+		
 }

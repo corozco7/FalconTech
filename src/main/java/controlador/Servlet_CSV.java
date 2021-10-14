@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
 
 import modelo.CSV_DAO;
 
+
+
+
 /**
  * Servlet implementation class Servlet_CSV
  */
@@ -23,77 +26,85 @@ import modelo.CSV_DAO;
 @MultipartConfig
 public class Servlet_CSV extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Servlet_CSV() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public Servlet_CSV() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		Part archivo = request.getPart("archivo");
-
-		//Cambiar la url si les sale un error al subir
-		String Url = "C:\\\\Users\\\\Usuario\\\\eclipse-workspace\\\\FalconTech\\\\src\\\\main\\\\webapp\\\\documentos\\\\";
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// Url que se usa para el servidor
-		//String Url = "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 9.0\\\\webapps\\\\documentos";
-		
-		if (request.getParameter("cargar") != null) {
-
-			try {
-				InputStream file = archivo.getInputStream();
-				File copia = new File(Url + "productos.csv");
-				FileOutputStream escribir = new FileOutputStream(copia);
-				int num = file.read();
-				while (num != -1) {
-
+		Part archivo=request.getPart("archivo");
+			
+		   String Url="C:\\\\Users\\\\Laura\\\\eclipse-workspace\\\\FalconTech\\\\src\\\\main\\\\webapp\\\\documentos\\\\";
+			
+			
+			
+		   if(request.getParameter("cargar")!=null) {
+				
+				
+				try {
+				InputStream file= archivo.getInputStream();
+				File copia= new File(Url+"productos.csv");
+				FileOutputStream escribir= new FileOutputStream(copia);
+				int num=file.read();
+				while(num !=-1) {
+					
 					escribir.write(num);
-					num = file.read();
+					num=file.read();
 				}
-
+				
+				
 				file.close();
 				escribir.close();
-
+				
 				boolean x;
 				JOptionPane.showMessageDialog(null, "Se cargo el archivo correctamente");
-
-				CSV_DAO credao = new CSV_DAO();
-
-				x = credao.cargarProducto(Url + "productos.csv");
-				if (x) {
+				
+				CSV_DAO credao=new CSV_DAO();
+				
+				x=credao.cargarProducto(Url+"productos.csv");
+				if(x) {
 					JOptionPane.showMessageDialog(null, "Datos cargados en la bd");
 					response.sendRedirect("Productos.jsp");
 				}
-
-				else {
+				
+				else
+				{
 					JOptionPane.showMessageDialog(null, "No se cargaron los datos");
 					response.sendRedirect("Productos.jsp");
 				}
-			} catch (Exception e) {
-				JOptionPane.showMessageDialog(null, "Error al cargar el archivo: " + e);
+				}catch(Exception e) {
+					JOptionPane.showMessageDialog(null, "Error al cargar el archivo: "+e);
+									}
+					
+				
+			
 			}
-
-		}
-
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

@@ -67,56 +67,41 @@ public class Servlet_Ventas extends HttpServlet {
 		}
 		if (request.getParameter("verificarproducto1") != null) {
 
-			Productos_DTO listaproducto1;
+			Productos_DTO listaproductos;
 			Productos_DAO prodao = new Productos_DAO();
 
 			codigo1 = Integer.parseInt(request.getParameter("codigo1"));
 			Productos_DTO proddto = new Productos_DTO(codigo1);
-			listaproducto1 = prodao.consultarproducto(proddto);
-			if (listaproducto1 == null) {
-				JOptionPane.showMessageDialog(null, "Producto no encontrado");
-				response.sendRedirect("Ventas.jsp");
-			} else {
-				iva1 = listaproducto1.getIva_compra();
-				sesion.setAttribute("producto1", listaproducto1);
-				request.getRequestDispatcher("Ventas.jsp").forward(request, response);
-			}
+			listaproductos = prodao.consultarproducto(proddto);
+			iva1 = listaproductos.getIva_compra();
+			sesion.setAttribute("producto1", listaproductos);
+			request.getRequestDispatcher("Ventas.jsp").forward(request, response);
 
 		}
 		if (request.getParameter("verificarproducto2") != null) {
 
-			Productos_DTO listaproducto2;
+			Productos_DTO listaproductos;
 			Productos_DAO prodao = new Productos_DAO();
 
 			codigo2 = Integer.parseInt(request.getParameter("codigo2"));
 			Productos_DTO proddto = new Productos_DTO(codigo2);
-			listaproducto2 = prodao.consultarproducto(proddto);
-			if (listaproducto2 == null) {
-				JOptionPane.showMessageDialog(null, "Producto no encontrado");
-				response.sendRedirect("Ventas.jsp");
-			} else {
-				iva2 = listaproducto2.getIva_compra();
-				sesion.setAttribute("producto2", listaproducto2);
-				request.getRequestDispatcher("Ventas.jsp").forward(request, response);
-			}
+			listaproductos = prodao.consultarproducto(proddto);
+			iva2 = listaproductos.getIva_compra();
+			sesion.setAttribute("producto2", listaproductos);
+			request.getRequestDispatcher("Ventas.jsp").forward(request, response);
 
 		}
 		if (request.getParameter("verificarproducto3") != null) {
 
-			Productos_DTO listaproducto3;
+			Productos_DTO listaproductos;
 			Productos_DAO prodao = new Productos_DAO();
 
 			codigo3 = Integer.parseInt(request.getParameter("codigo3"));
 			Productos_DTO proddto = new Productos_DTO(codigo3);
-			listaproducto3 = prodao.consultarproducto(proddto);
-			if (listaproducto3 == null) {
-				JOptionPane.showMessageDialog(null, "Producto no encontrado");
-				response.sendRedirect("Ventas.jsp");
-			} else {
-				iva3 = listaproducto3.getIva_compra();
-				sesion.setAttribute("producto3", listaproducto3);
-				request.getRequestDispatcher("Ventas.jsp").forward(request, response);
-			}
+			listaproductos = prodao.consultarproducto(proddto);
+			iva3 = listaproductos.getIva_compra();
+			sesion.setAttribute("producto3", listaproductos);
+			request.getRequestDispatcher("Ventas.jsp").forward(request, response);
 
 		}
 
@@ -147,6 +132,7 @@ public class Servlet_Ventas extends HttpServlet {
 							+ "Total sin IVA: $" + totalsiniva + "\n" + "Total IVA: $" + totaliva + "\n"
 							+ "TOTAL A PAGAR: $" + total);
 
+			
 			if (i == 0) {
 
 				int cedula_usuario, cedula_cliente, ID;
@@ -156,7 +142,7 @@ public class Servlet_Ventas extends HttpServlet {
 				cedula_usuario = Integer.parseInt(request.getParameter("usuario"));
 				Ventas_DTO ventdto = new Ventas_DTO(cedula_cliente, cedula_usuario, totaliva, totalsiniva, total);
 				ID = ventdao.InsertarVenta(ventdto);
-
+				
 				if (ID == 0) {
 					JOptionPane.showMessageDialog(null, "Venta no realizada");
 					response.sendRedirect("Ventas.jsp");
@@ -171,35 +157,33 @@ public class Servlet_Ventas extends HttpServlet {
 							total2 + res2);
 					DetalleVentas_DTO detavendto3 = new DetalleVentas_DTO(cantidad3, codigo3, ID, total3, res3,
 							total3 + res3);
-
-					exitodetalle = detaven.insertar(detavendto1);
+					
+					exitodetalle=detaven.insertar(detavendto1);
 					if (exitodetalle) {
-						JOptionPane.showMessageDialog(null, "El primer detalle de la venta fue creado");
-						exitodetalle = detaven.insertar(detavendto2);
+						JOptionPane.showMessageDialog(null,"El primer detalle de la venta fue creado" );
+						exitodetalle=detaven.insertar(detavendto2);
 						if (exitodetalle) {
-							JOptionPane.showMessageDialog(null, "El segundo detalle de la venta fue creado");
-							exitodetalle = detaven.insertar(detavendto3);
-							if (exitodetalle) {
-								JOptionPane.showMessageDialog(null, "El tercer detalle de la venta fue creado");
+							JOptionPane.showMessageDialog(null,"El segundo detalle de la venta fue creado" );
+							exitodetalle=detaven.insertar(detavendto3);
+							if(exitodetalle) {
+								JOptionPane.showMessageDialog(null,"El tercer detalle de la venta fue creado" );	
+							response.sendRedirect("Ventas.jsp");
+							
+							}else {
+								JOptionPane.showMessageDialog(null,"Existe un problema al crear el tercer detalle de la venta" );	
 								response.sendRedirect("Ventas.jsp");
-
-							} else {
-								JOptionPane.showMessageDialog(null,
-										"Existe un problema al crear el tercer detalle de la venta");
-								response.sendRedirect("Ventas.jsp");
-
+								
 							}
-						} else {
-							JOptionPane.showMessageDialog(null,
-									"Existe un problema al crear el segundo detalle de la venta");
+						}else {
+							JOptionPane.showMessageDialog(null,"Existe un problema al crear el segundo detalle de la venta" );	
 							response.sendRedirect("Ventas.jsp");
 						}
-					} else {
-						JOptionPane.showMessageDialog(null,
-								"Existe un problema al crear el primer detalle de la venta");
+					}else {
+						JOptionPane.showMessageDialog(null,"Existe un problema al crear el primer detalle de la venta" );	
 						response.sendRedirect("Ventas.jsp");
 					}
-
+					
+					
 				}
 			}
 

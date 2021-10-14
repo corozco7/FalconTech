@@ -6,9 +6,9 @@ public class Proveedor_DTO {
 	private String direccion;
 	private String telefono;
 	private String ciudad;
-
+	
 	public Proveedor_DTO(int nIT, String nombre, String direccion, String telefono, String ciudad) {
-
+		
 		NIT = nIT;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -16,9 +16,15 @@ public class Proveedor_DTO {
 		this.ciudad = ciudad;
 	}
 
+	
+	
+	
 	public Proveedor_DTO(int nIT) {
 		NIT = nIT;
 	}
+
+
+
 
 	public int getNIT() {
 		return NIT;
@@ -59,5 +65,8 @@ public class Proveedor_DTO {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-
+	
+	
+	
+	
 }

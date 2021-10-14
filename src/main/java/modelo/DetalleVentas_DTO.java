@@ -8,7 +8,7 @@ public class DetalleVentas_DTO {
 	private double valor_venta;
 	private double valor_IVA;
 	private double valor_total;
-
+	
 	public DetalleVentas_DTO(int cantidad_producto, int codigo_producto, int codigo_venta, double valor_venta,
 			double valor_IVA, double valor_total) {
 		super();
@@ -67,5 +67,7 @@ public class DetalleVentas_DTO {
 	public void setValor_total(double valor_total) {
 		this.valor_total = valor_total;
 	}
-
+	
+	
+	
 }

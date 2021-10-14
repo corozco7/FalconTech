@@ -13,14 +13,15 @@
 </head>
 <body>
 
-	<%
-	HttpSession varsesion = request.getSession();
-	Usuario_DTO us = (Usuario_DTO) varsesion.getAttribute("usuario");
-	if (us == null) {
-		JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
-		response.sendRedirect("index.jsp");
-	}
-	%>
+<%
+HttpSession varsesion=request.getSession();
+Usuario_DTO us=(Usuario_DTO)varsesion.getAttribute("usuario");
+ if (us==null){
+	JOptionPane.showMessageDialog(null, "Usted no se ha logueado");
+	response.sendRedirect("index.jsp");
+	 }
+
+%>
 	<%
 	String doc = "", nom = "", ape = "", dir = "", tel = "", co = "";
 	if (request.getParameter("do") != null) {
@@ -32,8 +33,7 @@
 		co = request.getParameter("c");
 	}
 	%>
-	<div class="container" id="Layer1"
-		style="width: auto; height: auto; overflow: scroll;">
+	<div class="container" id="Layer1" style="width:auto; height:auto; overflow: scroll;">
 		<div class="navbar">
 
 
@@ -46,10 +46,9 @@
 					<ul>
 						<li style="font-size: 19px"><a href="menu.jsp">Home</a></li>
 						<li style="font-size: 19px"><a href="Nosotros.jsp">Nosotros</a></li>
-
-						<li style="font-size: 19px" class="item-r"><a
-							href="contacto.jsp">Contacto</a></li>
-						<HR WIDTH=700PX SIZE=10 COLOR=#E20F2F>
+						
+						<li style="font-size: 19px" class="item-r"><a href="contacto.jsp">Contacto</a></li>
+						<HR WIDTH=700PX SIZE=10 COLOR= #E20F2F>
 					</ul>
 				</div>
 				<div class="hamburger-menu">
@@ -68,8 +67,7 @@
 						<form action="Servlet_Cliente" method="post">
 
 
-							<table
-								style="margin-left: 60px; font-family: Share Tech Mono; font-size: 20px;">
+							<table style="margin-left: 60px; font-family: Share Tech Mono; font-size: 20px; ">
 								<tr>
 									<td>Documento</td>
 									<th><input type="text" placeholder="Documento"
@@ -103,23 +101,18 @@
 
 
 							</table>
-							<br> <input class="button"
-								style="font-family: Share Tech Mono; width: 100px; height: 30px; padding-top: 10px; background-color: #24A249;"
-								boton1" type="submit" value="Insertar" name="btninsertar">
-
-							<input class="button"
-								style="font-family: Share Tech Mono; width: 100px; height: 30px; padding-top: 10px; background-color: #F48225;"
-								class="boton2" type="submit" value="Consultar"
-								name="btnconsultar"> <input class="button"
-								style="font-family: Share Tech Mono; width: 100px; height: 30px; padding-top: 10px; background-color: #5CA3FD"
-								class="boton3" type="submit" value="Actualizar"
-								name="btnactualizar"> <input class="button"
-								style="font-family: Share Tech Mono; width: 100px; height: 30px; padding-top: 10px;"
-								class="boton4" type="submit" value="Eliminar" name="btneliminar">
+<br>
+							<input class="button"  style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #24A249;  class="boton1" type="submit" value="Insertar"
+								name="btninsertar" >
+								
+						 <input class="button" style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #F48225;"  class="boton2" type="submit"
+								value="Consultar" name="btnconsultar">
+						 <input	class="button" style="font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px; background-color: #5CA3FD"  class="boton3" type="submit" value="Actualizar"
+								name="btnactualizar"> 
+						<input class="button" style=" font-family: Share Tech Mono;width:100px; height: 30px; padding-top: 10px;" class="boton4" type="submit" value="Eliminar" name="btneliminar">
 
 						</form>
-						<div style="font-size: 15px; margin-top: 20px;">©
-							FalconTech.co by Equipo 1 MisionTic2022 2021</div>
+<div style="font-size: 15px; margin-top: 20px;">© FalconTech.co by Equipo 1 MisionTic2022 2021</div>
 					</div>
 				</header>
 			</div>
@@ -128,21 +121,20 @@
 		</div>
 		<div class="links">
 			<ul>
-				<li><a href="menu.jsp" style="-i: 0.05s">Home <img
+				<li><a href="menu.jsp" style="--i: 0.05s">Home <img
 						src="img/home.png"></a></li>
-				<li><a href="Usuario.jsp" style="-i: 0.1s">Usuario <img
-						src="img/usuario.png">
+				<li ><a href="Usuario.jsp" style="--i: 0.1s">Usuario
+						<img src="img/usuario.png">
 				</a></li>
-				<li class="active"><a href="Cliente.jsp" style="-i: 0.15s">Cliente
-						<img src="img/cliente.png">
-				</a></li>
-				<li><a href="Proveedores.jsp" style="-i: 0.2s">Proveedor <img
+				<li class="active"><a href="Cliente.jsp" style="--i: 0.15s">Cliente <img
+						src="img/cliente.png"></a></li>
+				<li><a href="Proveedores.jsp" style="--i: 0.2s">Proveedor <img
 						src="img/proveedor.png"></a></li>
-				<li><a href="Productos.jsp" style="-i: 0.2s">Producto <img
+				<li><a href="Productos.jsp" style="--i: 0.2s">Producto <img
 						src="img/pc.png"></a></li>
-				<li><a href="Ventas.jsp" style="-i: 0.2s">Ventas <img
+				<li><a href="Ventas.jsp" style="--i: 0.2s">Ventas <img
 						src="img/ventas.png"></a></li>
-				<li><a href="Reportes.jsp" style="-i: 0.2s">Reportes <img
+			<li><a href="Reportes.jsp" style="--i: 0.2s">Reportes <img
 						src="img/check.png"></a></li>
 			</ul>
 		</div>
