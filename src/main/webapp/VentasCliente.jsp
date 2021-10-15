@@ -35,7 +35,7 @@ table, th, td {
 	<%
 Reporte_DAO rep=new Reporte_DAO();
 ArrayList<Reporte_DTO> listven=rep.listadoventas();
-if(listven==null){
+if(listven.isEmpty()){
 	JOptionPane.showMessageDialog(null, "No se han encontrado ventas realizadas por los clientes");
 response.sendRedirect("Reportes.jsp");
 }

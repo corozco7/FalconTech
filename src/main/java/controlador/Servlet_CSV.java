@@ -50,7 +50,11 @@ public class Servlet_CSV extends HttpServlet {
 		
 		Part archivo=request.getPart("archivo");
 			
-		   String Url="C:\\\\Users\\\\Laura\\\\eclipse-workspace\\\\FalconTech\\\\src\\\\main\\\\webapp\\\\documentos\\\\";
+		//Modificar ruta si sale error al agregar datos   
+		String Url="C:\\\\Users\\\\Usuario\\\\eclipse-workspace\\\\FalconTech\\\\src\\\\main\\\\webapp\\\\documentos\\\\";
+		
+		//Ruta usada en el servidor
+		//String Url ="C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 9.0\\\\documentos\\\\";
 			
 			
 			
